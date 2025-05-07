@@ -22,7 +22,6 @@ import { EditAnswerUseCase } from '@/domain/forum/application/use-cases/edit-ans
 import { CryptographyModule } from '../cryptography/cryptographgy.module'
 import { DeleteAnswerController } from './controllers/delete-answer.controller'
 import { DeleteAnswerUseCase } from '@/domain/forum/application/use-cases/delete-answer'
-import { FetchQuestionAnswersController } from './controllers/fect-question-answers.controller'
 import { FetchQuestionAnswersUseCase } from '@/domain/forum/application/use-cases/fetch-question-answers'
 import { ChooseQuestionBestAnswerUseCase } from '@/domain/forum/application/use-cases/choose-question-best-answer'
 import { ChooseQuestionBestAnswerController } from './controllers/choose-question-best-answer.controller'
@@ -41,6 +40,7 @@ import { FetchAnswerCommentsController } from './controllers/fetch-answer-commen
 import { UploadAttachmentController } from './controllers/upload-attachment.controller'
 import { StorageModule } from '../storage/storage.module'
 import { UploadAndCreateAttachmentUseCase } from '@/domain/forum/application/use-cases/upload-and-create-attachment'
+import { FetchQuestionAnswersController } from './controllers/fetch-question-answers.controller'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule, StorageModule],
