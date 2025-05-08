@@ -5,7 +5,6 @@ import { Either, right } from '@/core/either'
 import { AnswerAttachment } from '../../enterprise/entities/answer-attachment'
 import { AnswerAttachmentList } from '../../enterprise/entities/answer-attachment-list'
 import { Injectable } from '@nestjs/common'
-import { DomainEvents } from '@/core/events/domain-events'
 
 interface AnswerQuestionUseCaseRequest {
   authorId: string
@@ -47,7 +46,6 @@ export class AnswerQuestionUseCase {
     answer.attachments = new AnswerAttachmentList(answerAttachments)
 
     await this.answersRepository.create(answer)
-    DomainEvents.dispatchEventsForAggregate(answer.id)
 
     return right({
       answer,

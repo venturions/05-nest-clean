@@ -16,6 +16,8 @@ export class DomainEvents {
     }
   }
 
+  public static shouldRun = true
+
   private static dispatchAggregateEvents(aggregate: AggregateRoot<unknown>) {
     aggregate.domainEvents.forEach((event: DomainEvent) => this.dispatch(event))
   }
@@ -69,6 +71,10 @@ export class DomainEvents {
     const eventClassName: string = event.constructor.name
 
     const isEventRegistered = eventClassName in this.handlersMap
+
+    if (!this.shouldRun) {
+      return
+    }
 
     if (isEventRegistered) {
       const handlers = this.handlersMap[eventClassName]
